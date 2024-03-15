@@ -1,0 +1,19 @@
+package com.example.dartwebshop.controllers;
+
+import com.example.dartwebshop.dao.DartDAO;
+import com.example.dartwebshop.models.Product;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+@CrossOrigin(origins = "*")
+@RestController
+@RequestMapping(value = "/api/darts")
+public class DartController {
+    @Autowired
+    private DartDAO dartDAO;
+
+    @RequestMapping(method = RequestMethod.GET)
+    @ResponseBody
+    public List<Product> custom(){return this.dartDAO.getAllDarts();}
+}
